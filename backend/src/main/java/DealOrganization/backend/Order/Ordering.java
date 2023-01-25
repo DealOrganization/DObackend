@@ -1,10 +1,12 @@
 package DealOrganization.backend.Order;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Order {
+@Entity
+public class Ordering {
     @Id
     private int id;
     private String shipping;

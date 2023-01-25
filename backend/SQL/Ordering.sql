@@ -4,5 +4,5 @@ create table ordering
     shipping varchar(30),
     price int,
 
-    primary key (id)
+    primary key (id,shipping)
 );
