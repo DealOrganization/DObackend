@@ -3,6 +3,7 @@ package DealOrganization.backend.Order;
 import DealOrganization.backend.Member.Member;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,8 +24,8 @@ public class OrderController {
     }
 
     @GetMapping("")
-    public List<Ordering> findAllOrder(int id){
-        return orderService.findAllOrder(id);
+    public ResponseEntity findAllOrder(@RequestParam int id){
+        return ResponseEntity.ok().body(orderService.findAllOrder(id));
     }
 
 

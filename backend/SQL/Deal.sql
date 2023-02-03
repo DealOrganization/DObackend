@@ -8,7 +8,5 @@ create table deal
     state int,
     price int,
 
-
-
     primary key (id)
 );

@@ -21,8 +21,9 @@ public class OrderRepositoryImpl implements OrderRepository{
     }
 
     @Override
-    public List<Ordering> findAllOrder(int id){
-        return em.createQuery("select u from Ordering u",Ordering.class)
+    public List<Ordering> findAllOrder(int id){ // 결과값 이상함
+        return em.createQuery("select u from Ordering u where u.id=:id", Ordering.class)
+                .setParameter("id",id)
                 .getResultList();
     }
 }

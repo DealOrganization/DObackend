@@ -7,10 +7,21 @@ import javax.persistence.Id;
 
 @Entity
 public class Ordering {
-    @Id
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private int checking;
     private int id;
+
     private String shipping;
     private int price;
+
+    public int getChecking() {
+        return checking;
+    }
+
+    public void setChecking(int checking) {
+        this.checking = checking;
+    }
 
     public int getId() {
         return id;
