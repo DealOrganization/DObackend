@@ -1,8 +1,9 @@
 create table ordering
 (
-    id int NOT NULL,
+    checking int AUTO_INCREMENT,
+    id int,
     shipping varchar(30),
     price int,
 
-    primary key (id)
+    primary key (id,shipping)
 );
