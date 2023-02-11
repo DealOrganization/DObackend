@@ -21,4 +21,7 @@ public class MainPageService {
     public List<MainPage> getCategory(int cnt){
         return mainPageRepository.getCategory(cnt);
     }
+    public List<MainPage> getSearch(String text){
+        return mainPageRepository.getSearch(text);
+    }
 }
