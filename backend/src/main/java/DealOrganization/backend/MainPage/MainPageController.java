@@ -26,5 +26,9 @@ public class MainPageController {
     public List<MainPage> getCategory(@RequestParam int cnt){
         return mainPageService.getCategory(cnt);
     }
+    @GetMapping("/search")
+    public List<MainPage> getSearch(@RequestParam String text){
+        return mainPageService.getSearch(text);
+    }
 
 }

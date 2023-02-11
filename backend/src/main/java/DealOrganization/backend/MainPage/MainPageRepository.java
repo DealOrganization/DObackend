@@ -79,4 +79,28 @@ public class MainPageRepository {
     }
     //내가 산 거래 내역
 
+    //검색 페이지
+    public List<MainPage> getSearch(String text){
+        List<Deal> check=em.createQuery("select v from Deal v where state=0",Deal.class).getResultList();
+        List<Deal> confirm=new ArrayList<>();
+        for(int i=0;i<check.size();i++){
+            if(check.get(i).getTitle().contains(text)){
+                confirm.add(check.get(i));
+            }
+        }
+        int size=confirm.size();
+        List<MainPage> show=new ArrayList<>();
+        for(int i=0;i<size;i++){
+            MainPage main=new MainPage();
+            Deal deal=confirm.get(i);
+
+            main.setName(deal.getMember_id());
+            main.setPrice(deal.getPrice());
+            main.setTitle(deal.getTitle());
+
+            show.add(main);
+        }
+        return show;
+    }
+
 }
