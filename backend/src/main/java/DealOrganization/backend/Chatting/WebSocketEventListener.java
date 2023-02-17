@@ -1,4 +1,4 @@
-package com.example.DOY.Chatting;
+package DealOrganization.backend.Chatting;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

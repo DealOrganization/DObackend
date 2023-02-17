@@ -24,4 +24,7 @@ public class MainPageService {
     public List<MainPage> getSearch(String text){
         return mainPageRepository.getSearch(text);
     }
+    public List<MainPage> getMyPage2(String id){
+        return mainPageRepository.getYourDeal(id);
+    }
 }

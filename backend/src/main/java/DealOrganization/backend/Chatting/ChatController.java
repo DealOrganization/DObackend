@@ -1,4 +1,4 @@
-package com.example.DOY.Chatting;
+package DealOrganization.backend.Chatting;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;

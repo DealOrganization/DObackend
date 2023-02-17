@@ -43,4 +43,5 @@ public class MemberServiceImpl implements  MemberService{
     public void updateAfter(Member member){
         memberRepository.updateAfter(member);
     }
+
 }

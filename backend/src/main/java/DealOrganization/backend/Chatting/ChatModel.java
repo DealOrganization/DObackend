@@ -1,4 +1,4 @@
-package com.example.DOY.Chatting;
+package DealOrganization.backend.Chatting;
 
 public class ChatModel {
 

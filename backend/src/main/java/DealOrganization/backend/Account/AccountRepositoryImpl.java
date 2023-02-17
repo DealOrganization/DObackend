@@ -39,8 +39,6 @@ public class AccountRepositoryImpl implements AccountRepository {
             account.setCnt(max+1);
             em.persist(account);
         }
-
-
     }
 
     @Override

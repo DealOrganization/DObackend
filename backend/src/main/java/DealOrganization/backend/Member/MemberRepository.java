@@ -9,4 +9,5 @@ public interface MemberRepository {
     String lookEpilogue(String id, int order);
 
     void updateAfter(Member member);
+
 }

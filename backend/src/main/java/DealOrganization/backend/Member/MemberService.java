@@ -12,4 +12,7 @@ public interface MemberService {
 
     void updateAfter(Member member);
 
+
+
+
 }
