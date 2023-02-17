@@ -23,4 +23,9 @@ public class DealController {
     public ResponseEntity findById(int id){
         return ResponseEntity.ok().body(dealService.findDeal(id));
     }
+
+    @PutMapping("/state")
+    public void changeState(String id, String epilogue, int star,int deal_id,String my_id){// 산사람 아이디, 후기, 별점, 거래템 아이디, 내 아이디
+        dealService.changeState(id, epilogue, star,deal_id,my_id);
+    }
 }

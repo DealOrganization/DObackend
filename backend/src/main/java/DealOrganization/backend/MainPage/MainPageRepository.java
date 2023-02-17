@@ -3,6 +3,8 @@ package DealOrganization.backend.MainPage;
 import DealOrganization.backend.Deal.Deal;
 import DealOrganization.backend.Deal.DealRepository;
 import DealOrganization.backend.Member.MemberRepository;
+import DealOrganization.backend.Receipt.Receipt;
+import DealOrganization.backend.Receipt.ReceiptRepository;
 import org.jboss.jandex.Main;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +15,12 @@ import java.util.List;
 @Component
 public class MainPageRepository {
     private DealRepository dealRepository;
+    private ReceiptRepository receiptRepository;
     private final EntityManager em;
-    public MainPageRepository(EntityManager em, DealRepository dealRepository){
+    public MainPageRepository(EntityManager em, DealRepository dealRepository, ReceiptRepository receiptRepository){
         this.em=em;
         this.dealRepository=dealRepository;
+        this.receiptRepository=receiptRepository;
     }
     //최근 올라온 거래 내역
     public List<MainPage> getLatestMain(){
@@ -78,7 +82,25 @@ public class MainPageRepository {
         return show;
     }
     //내가 산 거래 내역
+    public List<MainPage> getYourDeal(String id){
+        List<Receipt> check=em.createQuery("select v from Receipt v where v.seller_id=:buyer_id", Receipt.class)
+                .setParameter("buyer_id",id)
+                .getResultList();
+        int size=check.size();
+        List<MainPage> show=new ArrayList<>();
+        for(int i=0;i<size;i++){
+            MainPage main=new MainPage();
+            Receipt receipt=check.get(i);
+            Deal deal=dealRepository.findById(receipt.getDeal_id()).get();
 
+            main.setName(deal.getMember_id());
+            main.setPrice(deal.getPrice());
+            main.setTitle(deal.getTitle());
+
+            show.add(main);
+        }
+        return show;
+    }
     //검색 페이지
     public List<MainPage> getSearch(String text){
         List<Deal> check=em.createQuery("select v from Deal v where state=0",Deal.class).getResultList();

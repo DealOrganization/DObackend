@@ -35,4 +35,5 @@ public class MemberRepositoryImpl implements MemberRepository{
     public void updateAfter(Member member){
 
     }
+
 }

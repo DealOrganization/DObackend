@@ -22,6 +22,10 @@ public class MainPageController {
     public List<MainPage> getMine(@RequestParam String id){
         return mainPageService.getMyPage(id);
     }
+    @GetMapping("/your")
+    public List<MainPage> getYours(@RequestParam String id){
+        return mainPageService.getMyPage2(id);
+    }
     @GetMapping("/category")
     public List<MainPage> getCategory(@RequestParam int cnt){
         return mainPageService.getCategory(cnt);
@@ -30,5 +34,6 @@ public class MainPageController {
     public List<MainPage> getSearch(@RequestParam String text){
         return mainPageService.getSearch(text);
     }
+
 
 }
