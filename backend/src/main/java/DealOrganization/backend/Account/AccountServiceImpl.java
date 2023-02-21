@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,11 +27,20 @@ public class AccountServiceImpl implements AccountService{
     }
     @Override
     public void save(Account account){
+        LocalDate now= LocalDate.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyyMMdd");
+        int nowDay=Integer.parseInt(now.format(formatter));
+        account.setDays(nowDay);
         accountRepository.save(account);
     }
     @Override
     public void save(String id,String name, int price, String platform, String seller){
         Account account=new Account();
+        LocalDate now= LocalDate.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyyMMdd");
+        int nowDay=Integer.parseInt(now.format(formatter));
+        account.setDays(nowDay);
+
         account.setId(id);
         account.setName(name);
         account.setPrice(price);
@@ -40,6 +51,11 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public void save(String id,String name, int price, String seller){
         Account account=new Account();
+        LocalDate now= LocalDate.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyyMMdd");
+        int nowDay=Integer.parseInt(now.format(formatter));
+        account.setDays(nowDay);
+
         account.setId(id);
         account.setName(name);
         account.setPrice(price);

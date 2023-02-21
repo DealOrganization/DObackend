@@ -39,8 +39,6 @@ public class AccountController {
     public void shippingErase(@RequestParam String id, @RequestParam int cnt, @RequestParam int shipping, @RequestParam String company){
         accountService.erase(id,cnt,company,shipping);
     }
-
-
     //해당 사용자의 전체 보여주는 API
     @GetMapping("")
     public ResponseEntity findAllAccount(@RequestParam String id){
@@ -50,4 +48,6 @@ public class AccountController {
     public ResponseEntity findById(@RequestParam String id){
         return ResponseEntity.ok().body(accountService.findById(id));
     }
+
+
 }

@@ -10,6 +10,7 @@ create table account
     company varchar(100),
     platform varchar(50),
     seller varchar(100),
+    days int,
 
     primary key (checking)
 );
