@@ -1,6 +1,7 @@
 *~.nib
 local.properties
 application.properties
+*.properties
 /resources
 .settings/
 .loadpath
