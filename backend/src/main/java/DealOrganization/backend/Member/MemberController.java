@@ -14,7 +14,6 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-
     @PostMapping("")
     public void join(@RequestBody Member member){
         memberService.join(member);

@@ -18,6 +18,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	implementation 'org.springdoc:springdoc-openapi-core:1.7.6'  // 최신 버전 사용 권장
+	implementation 'org.springdoc:springdoc-openapi-ui:1.7.6'
+
 	implementation 'mysql:mysql-connector-java:8.0.28'
 	implementation 'org.projectlombok:lombok:1.18.22'
 //
